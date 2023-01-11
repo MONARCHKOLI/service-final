@@ -1,0 +1,49 @@
+<% if task.status == "ACTIVE"%>
+<div style="color:green;font-size:larger">
+    <p>
+      <strong>Category:</strong>
+      <%= task.category %>
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= task.description %>
+    </p>
+  
+    <p>
+    <strong>Amount:</strong>
+    <%= task.amount %>/-
+  </p>
+  <p>
+    <%= link_to "Destroy Task", [task.contractor, task], data: 
+    {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
+ </div>  
+<% else %>
+  <div style="color:red">
+  <p>
+    <strong>Category:</strong>
+    <%= task.category %>
+  </p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%= task.description %>
+  </p>
+
+  <p>
+  <strong>Amount:</strong>
+  <%= task.amount %>/-
+</p>
+<p>
+  <%= link_to "Destroy Task", [task.contractor, task], data: 
+  {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+</p>
+</div> 
+<%end%>

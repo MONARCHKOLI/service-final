@@ -1,0 +1,51 @@
+<%= form_with model: @contractor do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% @contractor.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :mobileno %><br>
+      <%= form.text_field :mobileno %>
+    </div>
+
+    <div>
+      <%= form.label :email %><br>
+      <%= form.text_field :email %>
+    </div>
+
+    <div>
+      <%= form.label :status %><br>
+      <%= form.select :status ,["Active","Deactive"]%>
+    </div>
+
+    <div>
+      <%= form.label :address %><br>
+      <%= form.text_area :address %>
+      <% @contractor.errors.full_messages_for(:address).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :city %><br>
+      <%= form.text_field :city %>
+    </div>
+
+    <div>
+      <%= form.label :pincode %><br>
+      <%= form.text_field :pincode %>
+    </div>
+
+    <div>
+      <%= form.label :state %><br>
+      <%= form.text_field :state %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Current Contractor Details</h1>
+
+<h2>Name: <%= @contractor.name %> 
+  <% if @contractor.status == "Active"%>
+  <span style="color:green;">
+    <%= @contractor.status %>
+  </span>
+  <%else%>
+  <span style="color:red;">
+    <%= @contractor.status %>
+  </span>
+  <%end%>
+</h2>
+
+
+
+
+<ul>
+  <li><%= link_to "Edit", edit_contractor_path(@contractor) %></li>
+  <li><%= link_to "Delete", contractor_path(@contractor), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Click OK to Delete"
+  }%></li>
+</ul>
+
+<h2>Previously Added Tasks</h2>
+<%= render @contractor.tasks %>
+
+
+<h2>Add a new Tasks:</h2>
+<%= render "tasks/form"%>
